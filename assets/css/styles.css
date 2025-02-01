@@ -651,8 +651,8 @@ img {
 
 .footer__links{
   display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
+  flex-direction: row;
+  column-gap: 1.5rem;
 }
 
 .footer__link:hover{
@@ -697,7 +697,6 @@ img {
 
 ::-webkit-scrollbar-thumb:hover{
   background-color: var(--text-color-light);
-  
 }
 
 /*==================== MEDIA QUERIES ====================*/
