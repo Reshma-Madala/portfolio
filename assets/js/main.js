@@ -101,7 +101,9 @@ function scrollHeader(){
 window.addEventListener('scroll', scrollHeader)
 
 /*==================== SEND EMAIL ====================*/ 
-function sendMail(){
+emailjs.init("QilUFMP8aml5sJafg");
+function sendMail(e){
+    e.preventDefault();
     var params = {
         name: document.getElementById('name').value ,
         email: document.getElementById('email').value ,
@@ -109,18 +111,18 @@ function sendMail(){
     };
 
     const serviceID = 'service_pi28x16'
-const templateID = 'template_p5mrnui'
+    const templateID = 'template_p5mrnui'
 
-emailjs.send(serviceID,templateID,params)
-.then(
-    res =>{
-        document.getElementById('name').value = "";
-        document.getElementById('email').value = "";
-        document.getElementById('message').value = "";
-        console.log(res);
-        alert("Message Sent Successfully!")
+    emailjs.send(serviceID,templateID,params)
+    .then(response => {
+        console.log("SUCCESS!", response.status, response.text);
+        document.getElementById('contact-form').reset();
+        alert("Message Sent Successfully!");
     })
-.catch(err=>console.log(err))
+    .catch(error => {
+        console.error("FAILED...", error);
+        alert("Failed to send message. Please try again.");
+    });
 }
 
 /*==================== DARK LIGHT THEME ====================*/ 

@@ -487,7 +487,6 @@
                 <span class="section__subtitle">Most recent work</span>
 
                 <div class="projects__container container">
-                    <div>
                         <!--Project 1-->
                         <div class="project__content grid ">
                             <img src="assets/img/project_eveco.png" alt="" class="project__img">
@@ -537,7 +536,6 @@
                                     </a>  
                             </div>
                         </div>
-                    </div>
                 </div>
             </section>
 
@@ -547,7 +545,7 @@
                 <span class="section__subtitle">Drop a Message!</span>
             
                 <div class="contact__container grid">
-                    <form id="contact-form" class="contact__form grid">
+                    <form id="contact-form" class="contact__form grid" onsubmit="sendMail(event)">
                         <div class="contact__inputs grid">
                             <div class="contact__content">
                                 <label for="name" class="contact__label">Name</label>
@@ -563,7 +561,7 @@
                             </div>
             
                             <div>
-                                <button type="submit" class="button button--flex" onClick="sendMail()">
+                                <button type="submit" class="button button--flex">
                                     Send Message
                                     <i class="uil uil-message button__icon"></i>
                                 </button>
