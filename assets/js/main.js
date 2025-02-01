@@ -100,6 +100,29 @@ function scrollHeader(){
 }
 window.addEventListener('scroll', scrollHeader)
 
+/*==================== SEND EMAIL ====================*/ 
+function sendMail(){
+    var params = {
+        name: document.getElementById('name').value ,
+        email: document.getElementById('email').value ,
+        message: document.getElementById('message').value
+    };
+
+    const serviceID = 'service_pi28x16'
+const templateID = 'template_p5mrnui'
+
+emailjs.send(serviceID,templateID,params)
+.then(
+    res =>{
+        document.getElementById('name').value = "";
+        document.getElementById('email').value = "";
+        document.getElementById('message').value = "";
+        console.log(res);
+        alert("Message Sent Successfully!")
+    })
+.catch(err=>console.log(err))
+}
+
 /*==================== DARK LIGHT THEME ====================*/ 
 const themeButton = document.getElementById('theme-button')
 const darkTheme = 'dark-theme'
